@@ -1,0 +1,29 @@
+{% extends 'layout/index.html'%}
+
+{% block content%}
+<h1>Blog List</h1>
+{% for data in blog %}
+<div class="blog-item">
+   <div class="img-box1">
+      <img src="{{data.img.url}}" alt="">
+   </div>
+   <div class="blog-contain">
+      <div class="contain-title">
+         <h1>Blog No. {{data.id}}</h1>
+         <h1> Title:- {{data.title}}</h1>
+      </div>
+      <div class="btn">
+         <button>
+            <a href="{% url 'more' data.pk%}">Read more...</a>
+         </button>
+         <button>
+            <a href="{% url 'remove' data.pk%}">Remove</a>
+         </button>
+         <button>
+            <a href="{% url 'editBlog' data.pk%}" class="btn btn-primary">Edit Blog</a>
+         </button>
+      </div>
+   </div>
+</div>
+{% endfor%}
+{% endblock %}

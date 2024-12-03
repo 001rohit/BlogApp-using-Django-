@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="{% static 'css/style.css'%}">
+      <script src="{% static 'js/script.js'%}"></script>
+    <style>
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    text-align: center;
+    width:100%;
+    background: #000;
+    color: white;
+    /* justify-content: space-between; */
+}
+.icon,.input-box{
+    width:25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    width:250px;
+}
+button {
+    margin: 10px;
+}
+.btn button a{
+    width:150px;
+}
+.input-box input{
+    width:200px;
+    height:30px;
+    border-radius: 20px;
+    border: none;
+}
+.input-box input,button{
+    /* padding: 5px; */
+    font-size: 15px;
+
+}
+.input-box button{
+    width:100px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.list_item {
+    width:50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border: 1px  solid black;
+    margin-left:50px;
+}
+ul li{
+    list-style: none;
+    margin: 5px;
+    width:110px;
+    font-size: 1.5rem;
+    }
+.btn{
+    margin: 5px;
+}
+.blog-item{
+    width:80%;
+}
+.blog-item ,a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width:360px; */
+    /* border: 1px solid black; */
+    padding: 10px;
+    background: linear-gradient(45deg,rgb(113, 207, 69),rgb(241, 126, 126));
+    color: white;
+    margin: 5px;
+    text-decoration: none;
+}
+.img-box1{
+    width:300px;
+}
+.img-box2{
+    width:360px;
+    margin-top:90px;
+    margin-bottom:20px;
+}
+.img-box2 img{
+    width:100%;
+    object-fit: cover;
+    height:350px;
+}
+.img-box1 img{
+    width:100%;
+    height:250px;
+    object-fit: contain;
+}
+.row1{
+    text-align: center;
+}
+.blog-contain{
+    width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.contain h3{
+    font-size:3rem;
+}
+.contain h3,.contain p{
+    margin-bottom:10px;
+}
+.contain p{
+    font-size:25px;
+}
+    </style>
+</head>
+<body>
+        <div class="container">
+            <div class="header">
+                <div class="icon">
+                    <h1>My BlogApp</h1>
+                </div>
+                <ul class="list_item">
+                    <li class="item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="item">Menu</li>
+                    <li class="item">About</li>
+                    <li class="item">Contact</li>
+                    <li><a href="{% url 'add_blog'%}">Add+</a></li>
+                </ul>
+                <div class="input-box">
+                    <input type="text" >
+                    <button>search</button>
+                </div>
+            </div>
+            <div class="blog-section">
+                <h2>My Blog Page</h2>
+            </div>
+          {% block content %}
+          {% endblock%}
+        </div>
+</body>
+</html>

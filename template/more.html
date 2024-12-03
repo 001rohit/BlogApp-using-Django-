@@ -1,0 +1,26 @@
+{% extends 'layout/index.html'%}
+
+{% block content %}
+<div class="row1">
+    <!-- <a href="{% url 'home'%}" class="btn1"><button>Go To Home</button></a>  -->
+    <div class="card1">
+        <div class="img-box2">
+            <img src="{{blog1.img.url}}" class="img2" alt="img2">
+        </div>
+        <div class="contain">
+            <h3>Title: {{blog1.title}}</h3>
+            <p>Description: {{blog1.desc}}</p>
+        </div>
+    </div>
+</div>
+<button>
+    <a href="{% url 'remove' blog1.pk%}">Remove</a>
+ </button>
+ <button>
+    
+    <a href="{% url 'editBlog' blog1.pk%}" class="btn btn-primary">Edit Blog</a>
+ </button>
+ <button>
+    <a href="{% url 'home'%}">Go To Home</a>
+ </button>
+{% endblock %}
